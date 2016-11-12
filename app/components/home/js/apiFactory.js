@@ -32,26 +32,8 @@ cjs.factory('apiFactory', function ($q, $http) {
         return deferred.promise;
     }
 
-    //Returns single email snippet
-    // function _loadSingleEmail(threadId){
-    //     var deferred = $q.defer();
-    //     gapi.client.load('gmail', 'v1', function () {
-    //         request = gapi.client.gmail.users.threads.get({
-    //             'userId': 'me',
-    //             'id':threadId
-    //         });
-    //
-    //         request.execute(function (resp) {
-    //             deferred.resolve(resp.messages[0]);console.log(resp);
-    //         });
-    //     });
-    //
-    //     return deferred.promise;
-    // }
-
     return {
         loadPokemons: _loadPokemons,
         getOnePokemon: _getOnePokemon
-        // loadSingleEmail:_loadSingleEmail
     }
 });
