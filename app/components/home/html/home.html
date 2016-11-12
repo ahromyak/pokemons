@@ -1,9 +1,13 @@
-<div class="header row">
+<div class="header ">
 
 </div>
-<div class="row">
+<div class="filter-menu small-margin form-group">
+    <label  for="pokemonTypeSelector" class="small-margin">Pokemon Type Selector(fill pokemon type)</label>
+    <input type="text" id="pokemonTypeSelector" class="form-control" placeholder="Please fill pokemon type" ng-model="pokemonType">
+</div>
+<div class="">
     <div class="col-lg-offset-1 col-lg-8 col-md-8 col-xs-8 small-margin">
-        <div ng-repeat="pokemon in pokemonList  track by $index ">
+        <div ng-repeat="pokemon in filtered = (pokemonList | typeFilter:pokemonType) ">
             <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 card card--min-height" ng-click="getInfo(pokemon.id)">
                 <div class="text-center">
                     <img class="card-img-top" ng-src="assets/img/pngs/{{pokemon.id}}.png">
