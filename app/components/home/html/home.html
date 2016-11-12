@@ -1,0 +1,83 @@
+<div class="header row">
+
+</div>
+<div class="row">
+    <div class="col-lg-offset-1 col-lg-8 col-md-8 col-xs-8 small-margin">
+        <div ng-repeat="pokemon in pokemonList  track by $index ">
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 card card--min-height" ng-click="getInfo(pokemon.id)">
+                <div class="text-center">
+                    <img class="card-img-top" ng-src="assets/img/pngs/{{pokemon.id}}.png">
+                </div>
+                <div class="card-block">
+                    <h4 class="text-center" ng-bind="pokemon.name"></h4>
+                    <div ng-repeat="type in pokemon.types track by $index" class="card__box">
+                        <div ng-bind="type.name" class="card__box--color{{$index}}"></div>
+                    </div>
+                    <p class="text-justify"></p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="big-button" ng-click="loadMore()" ng-show="showMoreButton">Load more</button>
+        </div>
+    </div>
+</div>
+
+<article class="fixed-to-right">
+    <p ng-show="!show" class="text-center small-description">Please select pokemon</p>
+    <div ng-show="show">
+        <div class="rel-pos">
+            <span ng-click="hide()" class="close__button cursor">X</span>
+        </div>
+        <div class="text-center">
+            <img class="card-img-top" ng-src="assets/img/pngs/{{selectedPokemon.pkdx_id}}.png">
+        </div>
+        <div class="card-block">
+            <h4 class="text-center" ng-bind="selectedPokemon.name">{{selectedPokemon.name}}</h4>
+            <table class="table table-striped">
+                <tr>
+                    <td>Type</td>
+                    <td>
+                        <div ng-repeat="type in selectedPokemon.types">
+                            <div ng-bind="type.name"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td ng-bind="selectedPokemon.attack"></td>
+                </tr>
+                <tr>
+                    <td>Defense</td>
+                    <td ng-bind="selectedPokemon.defense"></td>
+                </tr>
+                <tr>
+                    <td>HP</td>
+                    <td ng-bind="selectedPokemon.hp"></td>
+                </tr>
+                <tr>
+                    <td>SP Attack</td>
+                    <td ng-bind="selectedPokemon.sp_atk"></td>
+                </tr>
+                <tr>
+                    <td>SP Defence</td>
+                    <td ng-bind="selectedPokemon.sp_def"></td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td ng-bind="selectedPokemon.speed"></td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td ng-bind="selectedPokemon.weight"></td>
+                </tr>
+                <tr>
+                    <td>Total moves</td>
+                    <td ng-bind="selectedPokemon.moves.length"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</article>
+
+
