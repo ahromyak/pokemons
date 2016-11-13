@@ -1,6 +1,7 @@
 # Pokemons App
 This is simple Pokemon client for checking out pokemons features.
-Befor running this app you have to clone it to your local folder.
+Be sure to have npm installed!
+Before running this app you have to clone it to your local folder.
 After that run "npm install".
 Be sure to have npm installed globally.
 This app goes with lite server.
